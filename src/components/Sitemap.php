@@ -40,6 +40,13 @@ class Sitemap extends Component
     protected $path;
 
     /**
+     * Base url for support subdir
+     *
+     * @var
+     */
+    protected $baseUrl;
+
+    /**
      * Handle of current sitemap file.
      *
      * @var resource
@@ -103,7 +110,10 @@ class Sitemap extends Component
         $lastmod = $objDateTime->format(\DateTime::W3C);
 
         $baseUrl = 'http://localhost/';
-        if (isset(\Yii::$app->urlManager->baseUrl)) {
+
+        if(isset($this->baseUrl)) {
+            $baseUrl = $this->baseUrl;
+        } elseif (isset(\Yii::$app->urlManager->baseUrl)) {
             $baseUrl = \Yii::$app->urlManager->baseUrl;
         }
         foreach ($this->generatedFiles as $fileName) {
