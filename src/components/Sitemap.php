@@ -33,18 +33,18 @@ class Sitemap extends Component
     public $optionalAttributes = ['changefreq', 'lastmod', 'priority'];
 
     /**
+     * Base url
+     *
+     * @var
+     */
+    public $baseUrl;
+
+    /**
      * Path to current sitemap file.
      *
      * @var string
      */
     protected $path;
-
-    /**
-     * Base url for support subdir
-     *
-     * @var
-     */
-    protected $baseUrl;
 
     /**
      * Handle of current sitemap file.
