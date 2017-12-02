@@ -145,6 +145,10 @@ class Sitemap extends Component
             $newFilePath = dirname($filePath) . '/' . substr(basename($filePath), 1);
             rename($filePath, $newFilePath);
         }
+        // delete old sitemap
+        foreach (glob("{$this->sitemapDirectory}/sitemap*.xml") as $filePath) {
+            unlink($filePath);
+        }
     }
 
     /**
