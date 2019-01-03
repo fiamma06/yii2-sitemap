@@ -121,7 +121,7 @@ class Sitemap extends Component
                 $this->handle,
                 PHP_EOL .
                 '<sitemap>' . PHP_EOL .
-                "\t" . '<loc>' . $baseUrl . '/' . $fileName . '.gz' . '</loc>' . PHP_EOL .
+                "\t" . '<loc>' . $baseUrl . '/sitemap/' . $fileName . '.gz' . '</loc>' . PHP_EOL .
                 "\t" . '<lastmod>' . $lastmod . '</lastmod>' . PHP_EOL .
                 '</sitemap>'
             );
@@ -161,6 +161,7 @@ class Sitemap extends Component
 
         $fileName = 'sitemap' . $this->fileIndex . '.xml';
         $this->path = $this->sitemapDirectory . '/_' . $fileName;
+
         $this->generatedFiles[] = $fileName;
 
         $this->handle = fopen($this->path, 'w');
